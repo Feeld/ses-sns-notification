@@ -1,0 +1,61 @@
+{
+   "bounce" : {
+      "feedbackId" : "01020169c4bdacf4-68edb0c6-c6d3-4fda-8221-d052d04271fa-000000",
+      "timestamp" : "2019-03-28T14:39:18.000Z",
+      "bounceSubType" : "General",
+      "bouncedRecipients" : [
+         {
+            "emailAddress" : "ooto@simulator.amazonses.com"
+         }
+      ],
+      "bounceType" : "Transient"
+   },
+   "mail" : {
+      "sourceArn" : "arn:aws:ses:eu-west-1:257312341952:identity/example.com",
+      "source" : "test@example.com",
+      "messageId" : "01020169c4bda870-e84e1ead-109a-4ac2-9f09-c020a4058f05-000000",
+      "sendingAccountId" : "257312341952",
+      "sourceIp" : "54.240.197.107",
+      "commonHeaders" : {
+         "from" : [
+            "test@example.com"
+         ],
+         "to" : [
+            "ooto@simulator.amazonses.com"
+         ],
+         "subject" : "Out of the office"
+      },
+      "destination" : [
+         "ooto@simulator.amazonses.com"
+      ],
+      "headersTruncated" : false,
+      "timestamp" : "2019-03-28T14:39:18.828Z",
+      "headers" : [
+         {
+            "name" : "From",
+            "value" : "test@example.com"
+         },
+         {
+            "name" : "To",
+            "value" : "ooto@simulator.amazonses.com"
+         },
+         {
+            "name" : "Subject",
+            "value" : "Out of the office"
+         },
+         {
+            "name" : "MIME-Version",
+            "value" : "1.0"
+         },
+         {
+            "value" : "text/plain; charset=UTF-8",
+            "name" : "Content-Type"
+         },
+         {
+            "value" : "7bit",
+            "name" : "Content-Transfer-Encoding"
+         }
+      ]
+   },
+   "notificationType" : "Bounce"
+}

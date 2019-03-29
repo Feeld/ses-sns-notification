@@ -1,0 +1,61 @@
+{
+   "complaint" : {
+      "userAgent" : "Amazon SES Mailbox Simulator",
+      "feedbackId" : "01020169c4c0c7cc-3a4e5566-5ac1-468e-be07-be54e0457141-000000",
+      "complainedRecipients" : [
+         {
+            "emailAddress" : "complaint@simulator.amazonses.com"
+         }
+      ],
+      "timestamp" : "2019-03-28T14:42:41.000Z",
+      "complaintFeedbackType" : "abuse"
+   },
+   "mail" : {
+      "sourceArn" : "arn:aws:ses:eu-west-1:257312341952:identity/example.com",
+      "messageId" : "01020169c4c0c195-fbbaf1a1-86b9-4aa8-a37d-5b71716657f3-000000",
+      "sendingAccountId" : "257312341952",
+      "commonHeaders" : {
+         "from" : [
+            "test@example.com"
+         ],
+         "subject" : "Me quejooo",
+         "to" : [
+            "complaint@simulator.amazonses.com"
+         ]
+      },
+      "destination" : [
+         "complaint@simulator.amazonses.com"
+      ],
+      "headersTruncated" : false,
+      "sourceIp" : "54.240.197.37",
+      "headers" : [
+         {
+            "name" : "From",
+            "value" : "test@example.com"
+         },
+         {
+            "value" : "complaint@simulator.amazonses.com",
+            "name" : "To"
+         },
+         {
+            "name" : "Subject",
+            "value" : "Me quejooo"
+         },
+         {
+            "name" : "MIME-Version",
+            "value" : "1.0"
+         },
+         {
+            "value" : "text/plain; charset=UTF-8",
+            "name" : "Content-Type"
+         },
+         {
+            "name" : "Content-Transfer-Encoding",
+            "value" : "7bit"
+         }
+      ],
+      "timestamp" : "2019-03-28T14:42:42.303Z",
+      "source" : "test@example.com"
+   },
+   "notificationType" : "Complaint"
+}

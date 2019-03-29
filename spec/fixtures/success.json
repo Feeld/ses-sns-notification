@@ -1,0 +1,24 @@
+{
+   "notificationType" : "Delivery",
+   "mail" : {
+      "destination" : [
+         "success@simulator.amazonses.com"
+      ],
+      "sendingAccountId" : "257312341952",
+      "messageId" : "01020169c4b148ce-3fc312a6-4b76-4993-8b2b-bb37a40b1f0c-000000",
+      "source" : "test@example.com",
+      "sourceArn" : "arn:aws:ses:eu-west-1:257312341952:identity/example.com",
+      "sourceIp" : "54.240.197.14",
+      "timestamp" : "2019-03-28T14:25:46.702Z"
+   },
+   "delivery" : {
+      "remoteMtaIp" : "207.171.163.188",
+      "processingTimeMillis" : 575,
+      "timestamp" : "2019-03-28T14:25:47.277Z",
+      "reportingMTA" : "a7-25.smtp-out.eu-west-1.amazonses.com",
+      "recipients" : [
+         "success@simulator.amazonses.com"
+      ],
+      "smtpResponse" : "250 2.6.0 Message received"
+   }
+}
