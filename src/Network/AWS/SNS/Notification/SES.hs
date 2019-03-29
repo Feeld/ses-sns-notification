@@ -18,10 +18,10 @@ import           Data.Text        (Text, unpack)
 import           Data.Time        (UTCTime)
 import           GHC.Generics     (Generic)
 
-data Notification = Notification Mail MailStatus
+data Notification = Notification Mail NotificationStatus
   deriving (Eq, Show, Generic)
 
-data MailStatus
+data NotificationStatus
   = StatusBounce    Bounce
   | StatusComplaint Complaint
   | StatusDelivery  Delivery
@@ -39,6 +39,10 @@ instance FromJSON Notification where
 mail :: Lens' Notification Mail
 mail = lens (\(Notification m _) -> m) (\(Notification _ x) v -> Notification v x)
 {-# INLINE mail #-}
+
+notificationStatus :: Lens' Notification NotificationStatus
+notificationStatus = lens (\(Notification _ x) -> x) (\(Notification x _) v -> Notification x v)
+{-# INLINE notificationStatus #-}
 
 --
 -- Mail
