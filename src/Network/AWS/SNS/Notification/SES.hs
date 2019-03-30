@@ -215,8 +215,14 @@ instance FromJSON ComplaintType where
 data Delivery = Delivery
   { timestamp            :: UTCTime
   , processingTimeMillis :: Int
-  , recipients           :: [Text]
+  , recipients           :: [Recipient]
   , smtpResponse         :: Text
   , reportingMTA         :: Text
   , remoteMtaIp          :: Text
   } deriving (Eq, Show, Generic, FromJSON)
+
+newtype Recipient = Recipient
+  { emailAddress :: Text
+  }
+  deriving stock (Eq, Show, Generic)
+  deriving anyclass (FromJSON)
