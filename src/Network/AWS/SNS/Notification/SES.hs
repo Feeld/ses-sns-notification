@@ -19,6 +19,7 @@ import           Data.Text        (Text, unpack)
 import           Data.Time        (UTCTime)
 import           GHC.Generics     (Generic)
 
+-- | https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notification-contents.html
 data Notification = Notification Mail NotificationStatus
   deriving (Eq, Show, Generic)
 
