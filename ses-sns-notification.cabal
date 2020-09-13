@@ -22,11 +22,11 @@ library
   exposed-modules:     Network.AWS.SNS.Notification.SES
   -- other-modules:
   build-depends:
-    base >=4.12 && <4.13,
-    lens >=4.17 && <4.18,
-    aeson >=1.4 && <1.5,
-    text >=1.2 && <1.3,
-    time >=1.8 && <1.9
+    base,
+    lens,
+    aeson,
+    text,
+    time
   hs-source-dirs:      src
   ghc-options: -Wall -fwarn-redundant-constraints
   default-language:    Haskell2010
