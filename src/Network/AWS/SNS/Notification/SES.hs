@@ -11,8 +11,7 @@
 module Network.AWS.SNS.Notification.SES where
 
 
-import           Control.Lens     (Lens', lens)
-import           Data.Aeson       (FromJSON (..), Object, Value (String),
+import           Data.Aeson       (FromJSON (..), Object, Value (String, Object),
                                    withObject, withText, (.:), (.:?))
 import           Data.Aeson.Types (Parser)
 import           Data.Text        (Text, unpack)
@@ -20,7 +19,11 @@ import           Data.Time        (UTCTime)
 import           GHC.Generics     (Generic)
 
 -- | https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notification-contents.html
-data Notification = Notification Mail NotificationStatus
+data Notification = Notification
+  { mail         :: Mail
+  , notification :: NotificationStatus
+  , raw          :: Value
+  }
   deriving (Eq, Show, Generic)
 
 data NotificationStatus
@@ -33,18 +36,16 @@ data NotificationStatus
 instance FromJSON Notification where
   parseJSON = withObject "Notification" $ \o ->
     o .: "notificationType" >>= \case
-      "Delivery"  -> Notification <$> o .: "mail" <*> (StatusDelivery  <$> o .: "delivery")
-      "Bounce"    -> Notification <$> o .: "mail" <*> (StatusBounce    <$> o .: "bounce")
-      "Complaint" -> Notification <$> o .: "mail" <*> (StatusComplaint <$> o .: "complaint")
+      "Delivery"  -> Notification <$> o .: "mail"
+                                  <*> (StatusDelivery  <$> o .: "delivery")
+                                  <*> (pure $ Object o)
+      "Bounce"    -> Notification <$> o .: "mail"
+                                  <*> (StatusBounce <$> o .: "bounce")
+                                  <*> (pure $ Object o)
+      "Complaint" -> Notification <$> o .: "mail"
+                                  <*> (StatusComplaint <$> o .: "complaint")
+                                  <*> (pure $ Object o)
       (other :: Text) -> fail $ unpack $ "Unknown notificationType: " <> other
-
-mail :: Lens' Notification Mail
-mail = lens (\(Notification m _) -> m) (\(Notification _ x) v -> Notification v x)
-{-# INLINE mail #-}
-
-notificationStatus :: Lens' Notification NotificationStatus
-notificationStatus = lens (\(Notification _ x) -> x) (\(Notification x _) v -> Notification x v)
-{-# INLINE notificationStatus #-}
 
 --
 -- Mail
